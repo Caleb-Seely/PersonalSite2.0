@@ -8,6 +8,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--Slick-->
+<link rel="stylesheet" type="text/css" href="carousel.css" rel="stylesheet" type="text/css" >
+<script src="slick.js" type="text/javascript" charset="utf-8"></script>
+
+
+
 <!--Added after template--> 
 <link rel="icon" href="images/icon.jpg" type="image/icon type"> 
 <link rel="stylesheet" href="style.css">
@@ -34,10 +40,13 @@
                <a class="nav-link text-light" href="miscellaneous/Caleb_Seely_Resume.pdf" target="_blank">Resumé</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#">Link</a>
+               <a class="nav-link" href="#BIO">Bio</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#">Link</a>
+               <a class="nav-link" href="#PROJECTS">Projects</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#PHOTOS">Photos</a>
             </li>
          </ul>
          </div>
@@ -53,7 +62,7 @@
 
    </div>
 
-   <div class="container-fluid pt-3">
+   <div class="container-fluid pt-3" id="BIO">
       <div class="row ">
          
          <div class="col-sm-4 bg-secondary text-center">
@@ -74,78 +83,241 @@
          </div>
       </div>
    </div>
+   
 
    <div class="container-fluid pt-3 text-center">
       <h1>In a Nutshell...</h1>
       <div class="row pt-3">
          <div class="col-sm-4">
             <i class="fas fa-hiking display-1"></i>
-            <p class="pt-3">I hike whenever I can. Wherever I Can.</p>
+            <h4 class="pt-3">Hike</h4>
          </div>
          <div class="col-sm-4">
             <i class="fas fa-code display-1"></i>
-            <p class="pt-3">Who doesn't love to code?</p>
+            <h4 class="pt-3">Code</h4>
          </div>
          <div class="col-sm-4">
             <i class="fas fa-running display-1"></i>
-            <p class="pt-3"> I run almost everyday. Sometimes for pleasure.</p>
+            <h4 class="pt-3">Run</h4>
          </div>
       </div>
    </div>
    
    
-   <div class="container-fluid pt-3 text-center">
-      <h1>Some Projects</h1>
-      <div class=" row pt-3 pb-3 ">
+   <div class="container-fluid pt-3 text-center" id="PROJECTS">
+      <h1>Projects</h1>
 
-         <div class="col-sm-3 pt-3 pb-3">
-            <div class="drop ">
-               <button type="button " class=" btn-block btn-primary " > <h3>Compiler Design</h3> </button>    
-               <div id="demo" class=" pt-3 demo">
-                  <p>This project is the product of several months studying the intricacies of compilers. Heavily influenced by the C language, 
-                     the project uses Flex and Bison to focus on the fundamentals of a compiler. Checkout 
-                     a more detailed description <a  href="miscellaneous/Compiler.pdf">here</a>.    
-                  </p>
-               </div>
-            </div>
-         </div>
+      <div class=" pt-3 pb-3 row bg-secondary justify-content-center card-deck">
 
-         <div class="col-sm-3 pb-3 pt-3">
-            <div class="drop ">
-               <button type="button " class="btn-block btn-primary" data-toggle="collapse" data-target="#demo2"> <h3>Database System</h3></button>
-               <div id="demo2" class=" pt-3 demo">
-                  <p>This project is my first attempt with SQL and PHP. It attempts to improve the class scheduling system of the University of 
-                     Idaho computer Science classes. Checkout a more detailed description <a  href="miscellaneous/UI_Scheduler.pdf">here</a>.
-                  </p>
+      <!--Compiler-->
+            <div class="card " style="width: 18rem;">
+               <div class="crop">
+                  <img class="card-img-top img-responsive bg-secondary "  src="images/TreeNode.jpg" alt="Card image cap" style="object-fit: contain;">  
                </div>
-            </div>
-         </div>
+               <div class="card-body">
+                 <h5 class="card-title">C Compiler</h5>
+                 <p class="card-text">This project was for my Compiler Design class. It uses a subset of the C language to teach the fundamental parts of a compiler. </p>
+                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#compiler">Learn more!</a>
+               </div>
+             </div>          
+             
+             <div id="compiler" class="modal fade" role="dialog">
+               <div class="modal-dialog modal-lg">
+             
+                 <!-- Modal content-->
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     
+                     <h4 class="modal-title">C Compiler</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   </div>
+                   <div class="modal-body text-left">
+                     <p>The task of building my compiler was broken into seven parts, <b>a scanner, a parser, an abstract syntax tree, semantic analysis, error handling, memory management</b>, and <b>code generation</b>. Each section builds off the previous to create functional machine code. </p>
+                     
+                     <h5>The Scanner</h5>
+                     <p>I used <b>Flex</b> and <B>Bison</B> to create a scanner for different patterns that are found in the grammar. The image below looks at some examples of pattern rules. I chose these two because they were two of the more complicated patterns I was matching.</p>
+                     <img class=" " src="images/scanner.png" alt="code" style="height: auto" ;">
+                     <p>Line 171 tries to identify any pattern of two or more characters between single quotes. Line 172 looks for any character following a backslash that is between single quotes. This code would later be adjusted. Not only should the rules be flipped to give precedence to the rule on 172 but I would break these down further for ‘\0’ and ‘\n’ because they are special to the language.  </p>
+                     <p>My code for this section is <a class="link" href="https://github.com/Caleb-Seely/C-Minus/blob/hw1/parser.l">here!</a> </p>
+
+                     <h5>The Parser</h5>
+                     <p>This part of the project defines the grammar and lays the foundation for the abstract syntax tree. </p>
+                     <img class=" " src="images/parser.png" alt="code" style="height: auto" ;">
+                     <p>Here is just a look at one of the first rules of the language, declarationList, which can go to itself followed by a declaration or it can just go to declaration (not pictured). These rules build off each other  before leading to terminals. </p>
+                     <p>My grammar code is <a class="link" href="https://github.com/Caleb-Seely/C-Minus/blob/hw2/parser.y">here!</a> </p>
+
+                     <h5>The Abstract Syntax Tree</h5>
+                     <p>These trees represent the general flow of any code. A visual representation can be printed by setting a flag. Used for debugging and comprehension, trees are convenient for visualizing what the program knows about the input code. </p>
+                     <img class=" " src="images/astDiagram.png" alt="code" style=" display: inline;" ;">
+                     <img class=" pl-3" src="images/ast.png" alt="code" style="height: auto" ;">
+                     <p>The tree can also print debugging information, such as data types and memory info, depending on flags. </p>
+                     <p>The recursive tree printing function is <a class="link" href="https://github.com/Caleb-Seely/C-Minus/blob/hw7/printtree.c">here!</a> </p>
+
+                     <h5>Semantic Analysis & Error Handling</h5>
+                     <p>The main idea here is to start protecting the user from themselves and any mistakes that could occur. Here is just one example of problems I was trying to code against.</p>
+                     <img class=" " src="images/error.png" alt="code" style="height: auto" ;">
+                     <p>This if statement is doing some type checking and gives a helpful error message if the types do not match. Another interesting problem presented in this section is assuring break statements are only inside of loops.</p>
+                     <p>Take a look at the bulk of my defense <a class="link" href="https://github.com/Caleb-Seely/C-Minus/blob/hw5/semantic.c">here!</a> </p>
+
+                     <h5>Memory Management</h5>
+                     <p>This part of the project was about accurately calculating stack frames, their location and size. Here is what I do for the declaration of a static variable.</p>
+                     <img class=" " src="images/mem.png" alt="code" style="height: auto" ;">
+                     <p>The static variable is held in global memory space but used in the local frame. I set the memory type for debugging. I decrement the global offset to set it and increment the local offset because the default is to set it. </p>
+
+                     <h5>Code Generation</h5>
+                     <p>The final step of my project was to produce machine code with the appropriate commands and offsets.</p>
+                     <img class=" " src="images/codeGen.png" alt="code" style="display: inline;" ;">
+                     <p>This code loads a declared variable value into the proper offset in memory. Below is just a section of machine code I produce for a program.</p>
+                     <img class="img-responsive" src="images/gen.png" alt="code" style="object-fit: contain;" >
+                     <p>This file is the sent to a special machine built for this class. That machine then does whatever the input code said to do. My compiler has some bugs with arrays along with other smaller bugs sprinkled about but perfection was never the goal. The project was a learning experience, about compilers, large code bases, and problem solving. Plenty of lessons learned for my next big project! </p>
+                     <p>Checkout all the machine code generation <a class="link" href="https://github.com/Caleb-Seely/C-Minus/blob/hw7/codeGen.c">here!</a> </p>
+
+                  </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                   </div>
+                 </div>
+             
+               </div>
+             </div>
+
+      <!--Database-->
+            <div class="card " style="width: 18rem;">
+               <div class="crop">
+                  <img class="card-img-top img-responsive " src="images/Fresh1.png" alt="Card image cap" style="object-fit: contain; overflow: hidden; "> 
+               </div>
+               <div class="card-body">
+                 <h5 class="card-title">SQL Database</h5>
+                 <p class="card-text">This project was for my Database Design class. It uses MySQL and PHP to prototype a different style class scheduling.</p>
+                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Database">Learn more!</a>
+               </div>
+             </div>         
+                 
+             <div id="Database" class="modal fade" role="dialog">
+               <div class="modal-dialog modal-lg">
+             
+                 <!-- Modal content-->
+                 <div class="modal-content">
+                   <div class="modal-header"> 
+                     <h4 class="modal-title">SQL Database (2020)</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   </div>
+                   <div class="modal-body text-left">
+                     <p>The goal of this project was to create a better scheduling system for students at the University of Idaho. It is a system that recommends classes based on the user’s career goal. <b>For example</b>, if you want to be a game developer, the software will recommend 3D modeling and other related topics, while never recommending other interests such as network security. </p>
+                     <p>The image below shows generally how the system works. </p>
+                     <img class="img-responsive " src="images/Add.png" alt="code" style="width: 75%;">
+                     <p><br>Here is a look at some sample output.</p>
+                     <img class="img-responsive " src="images/output.png" alt="code" style="width: 75%;">
+                     <p>The code uses a combination of <b>PHP</b>, <b>JavaScript</b>, and <b>SQL</b>.<br>I also used <b>Apache</b>, <b>XAMP</b>, and <b>MySQL</b>.<br><br>  I isolated part of the most interesting code snippet below. It is only a section of the SQL command I use.  </p>
+                     <img class="" src="images/SQL.jpg" alt="code" style="width: 100%">
+                     <p>This section of the command eliminates classes that the user has already taken. </p>
+                     <p>This project provided valuable experience working with new tools and a live database. <br>Checkout all the code for this project <a class="link" href="https://github.com/Caleb-Seely/UI_Schedule">here!</a> </p>
+                     
+
+                  </div>
+
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                   </div>
+                 </div>
+               </div>
+             </div>
+
+      <!--Maze-->
+            <div class="card " style="width: 18rem; ">
+               <div class="crop">
+                  <img class=" card-img-top  img-responsive " src="images/Maze1.jpg" alt="Card image cap" style="height: 335px; overflow: hidden;">
+               </div>
+               <div class="card-body">
+                 <h5 class="card-title">C++ Maze</h5>
+                 <p class="card-text">This project was for my data structures class. It reads in a maze text file and determines if it is solvable. </p>
+                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Maze">Learn more!</a>
+               </div>
+            </div>        
+
+            <div id="Maze" class="modal fade" role="dialog">
+               <div class="modal-dialog modal-lg">
+             
+                 <!-- Modal content-->
+                 <div class="modal-content">
+                   <div class="modal-header"> 
+                     <h4 class="modal-title">C++ Maze</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   </div>
+                   <div class="modal-body text-left">
+                     <p>This project was originally to practice data structures, specifically <b>stacks</b>, but over the years I have made tweaks to improve it and attempt other things I was learning about.  </p>
+                     <p>Below is the output of one text file. The program starts the linked list at S and uses <b>BFS</b> to traverse the maze until it locates G or runs out of options.</p>
+                     <img class=" " src="images/Maze1.jpg" alt="code" style="height: auto" ;">
+                     <p><br>Maze sizes varied so I used a dynamic 2D array to accomodate.</p>
+                     <h4>Improvements</h4>
+                     <p>The output text did not always look so interesting. Over the years I have come back to this project to play with it. I use this it to test my skills on long bus rides with no wifi. </p>
+                     <p>The first Improvement I made was to "animate" it. At every step in the search I would print the maze. This provided a better representation of BFS for my unfamiliar peers.    </p>
+                     <p>I later added color. Color makes the program more attractive for everyone and easier to follow. </p>
+                     <p>My last addition was writing a script to run this program. I find this program to be an interesting one to show off to anyone because of its simple and visual representation, so I created an alias for a script that runs through three different sizes of maze. </p>
+                     <p>Checkout all the code for this project <a class="link" href="https://github.com/Caleb-Seely/Maze-Solver">here!</a> </p>
+
+                  </div>
+
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                   </div>
+                 </div>
+               </div>
+             </div>
          
-         <div class="col-sm-3 pb-3 pt-3">
-            <div class="drop ">
-               <button type="button " class="btn btn-primary" data-toggle="collapse" data-target="#demo3"> <h3>Maze Solution</h3></button>
-               <div id="demo3" class=" pt-3 demo">
-                  <p>This is an early project in my computer science career that I have come back to tinker with. It reads an input file and 
-                     outputs if it is solvable or not.Checkout a more detailed description <a  href="miscellaneous/MazeSolver.pdf">here</a>.
-                  </p>
-               </div>
-            </div>
-         </div>
+      </div>
+   </div> <!--End Project Section-->
 
-         <div class="col-sm-3 pb-3 pt-3">
-            <div class="drop ">
-               <button type="button " class="btn btn-primary" data-toggle="collapse" data-target="#demo4"> <h3>Senior Capstone</h3></button>
-               <div id="demo4" class=" pt-3 demo">
-                  <p>Unfortunately, I am not allowed to post any of the work I have done for this project publicly. It is an android app, written 
-                     in Java, that connects to a car’s ecu. Feel free to reach out and I will be happy to discuss more about it.
-                  </p>
-               </div>
-            </div>
+   <div class="container-fluid pt-3 text-center">
+      <h1>Recent Tools</h1>
+      <div class="row pt-3">
+         <div class="col-sm-4">
+            <i class="fab fa-google display-1"></i>
+            <h4 class="pt-3">Google Maps API</h4>
          </div>
-
+         <div class="col-sm-4">
+            <i class="fab fa-android display-1"></i>
+            <h4 class="pt-3">Android Studios</h4>
+         </div>
+         <div class="col-sm-4">
+            <i class="fab fa-python display-1"></i>
+            <h4 class="pt-3">Python</h4>
+         </div>
       </div>
    </div>
 
+   <!--Img Bio--> 
+   <div class=" container-fluid pt-3 text-center" id="PHOTOS">
+      <h1>Photos</h1>
+      <div class="customer-logos bg-secondary pb-3 pt-3 row" >
+         
+         <div class="slide card"><img src="images/backpack.jpg"></div>
+         <div class="slide card"><img src="images/snow_run2.jpg" ></div>
+         <div class="slide card"><img src="images/smith.jpg" ></div>
+         <div class="slide card"><img src="images/dive.jpeg" ></div>
+         <div class="slide card"><img src="images/fam.jpg" ></div>
+         <div class="slide card"><img src="images/abi.jpg" ></div>
+         <div class="slide card"><img src="images/bella.jpg" ></div>
+         <div class="slide card"><img src="images/spirit.jpg" ></div>
+         <div class="slide card"><img src="images/science.jpg" ></div>  
+         <div class="slide card"><img src="images/cats.jpg" ></div>  
+         <div class="slide card"><img src="images/hood.jpg" ></div>
+         <div class="slide card"><img src="images/chip.jpg" ></div>
+         <div class="slide card"><img src="images/lake.jpg" ></div>
+         <div class="slide card"><img src="images/ellie.jpg" ></div>
+         <div class="slide card"><img src="images/saint.jpg"></div>
+         <div class="slide card"><img src="images/south2.jpg" ></div>
+         <div class="slide card"><img src="images/missy.jpg" ></div>
+
+       </div>
+   </div>
+
+
+   
+
+   
+   <!--End Img Bio-->
+   
 
 <!--Footer-->
    <div class="content-fluid text-center display-4">
@@ -213,5 +385,43 @@
    }, 1000);
 
 </script>
+
+<script type="text/javascript">
+   $(document).ready(function(){
+      $('.customer-logos').slick({
+         
+         
+         waitForAnimate: true,
+         slidesToShow: 3,
+         slidesToScroll: 1,
+         autoplay: true,
+         autoplaySpeed: 3000,
+         arrows: false,
+         dots: false,
+            pauseOnHover: false,
+            responsive: [
+            {
+               breakpoint: 768,
+               settings: {
+                  slidesToShow: 1,
+                  
+                  
+               }
+            }, 
+           {
+            breakpoint: 520,
+            settings: {
+               slidesToShow: 1,
+               
+               
+            }
+         }]
+      });
+
+      
+   });
+
+</script>
+
 </body>
 </html>
