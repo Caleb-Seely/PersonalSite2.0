@@ -4,6 +4,18 @@
     
  }
 
+ .bg-secondary{
+    background-color: #454c5f !important;
+ }
+
+ .bg-warning{
+   background-color: #8DB7F5 !important;
+}
+
+.text-primary{
+   color: #8DB7F5 !important;
+}
+
  .landing {
    /* The image used */
    background-image: url('images/Alice4.jpg');
@@ -52,7 +64,7 @@ body::-webkit-scrollbar {
 
 
 /*Image Bio */
-.customer-logos {
+.img_bio {
    background-color: #111;
  }
  
