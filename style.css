@@ -4,7 +4,7 @@
     
  }
 
- .bg-secondary{
+ .bg-secondary {
     background-color: #454c5f !important;
  }
 
@@ -14,6 +14,17 @@
 
 .text-primary{
    color: #8DB7F5 !important;
+}
+
+.btn-dark{
+   background: none;
+   color: white;
+}
+.nav-link{
+   color: white !important;
+}
+.nav-link:hover{
+   color: #454c5f !important;
 }
 
  .landing {
