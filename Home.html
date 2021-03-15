@@ -63,15 +63,15 @@
       </nav>
    </div>
 
-
-   <div class=" text-center display-4"  id="greeting" style="position: absolute; top: 5%;  width: 100%;  " >
+<div>
+   <div class=" text-center display-4 lead "  id="greeting" style="position: absolute; top: 5%;  width: 100%;  " >
       <h1 >Hey You</h1>
    </div>
 
 
-   <div class=" text-center lead " id="timer" style=" position: absolute; top: 12%; width: 100%; font-size: 20px; " >
+   <div class=" text-center lead " id="timer" style=" position: absolute; top: 12%; width: 100%; font-size: 20px;color: ; " >
    </div>
-
+</div>
 
 <div class="container-fluid bg-secondary">
    <div class="container-fluid " id = "BIO">
@@ -376,7 +376,7 @@
       greet = 'Good Evening';
 
    document.getElementById("greeting").innerHTML =
-      '<h1 class="lead" style="font-size: 40px;">' + greet + '</h1> ';
+      '<h1 class="lead" style = "font-size: var(--font_size)">' + greet + '</h1> ';
 </script> 
 
 <!--Countdown Timer-->
@@ -401,8 +401,8 @@
          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
          
          // Display the result
-         document.getElementById("timer").innerHTML ="<b>Time until graduation </b> <p style='font-size: 16px;'><b> " + days + " days " + hours + " hours "
-         + minutes + " minutes " + seconds + " seconds </b> </p> ";
+         document.getElementById("timer").innerHTML ="<b>Time until graduation </b> <p style=''><b> " + days + " : " + hours + " : "
+         + minutes + " : " + seconds + "  </b> </p> ";
          
          // If the count down is finished, write something else
          if (distance < 0) {
