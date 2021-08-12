@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <title>My Secrete Database</title>
+  <title>My Thoughts</title>
 </head>
-<body class="green lighten-3"">
+<body class="green lighten-1">
 
   <!-- NAVBAR -->
   <nav class="z-depth-0 black lighten-4">
     <div class="nav-wrapper container">
       <ul id="nav-mobile" class="right ">
           <li class="logged-in" style="display: none;">
-            <a href="#" class="white-text modal-trigger" data-target="modal-account">Info</a>
+            <a href="#" class="white-text modal-trigger" data-target="modal-account">User</a>
           </li>
           <li class="logged-in" style="display: none;">
             <a href="#" class="red-text" id="logout">Logout</a>
@@ -25,10 +25,10 @@
             <a href="#" class="blue-text modal-trigger" data-target="modal-create">New Post</a>
           </li>
           <li class="logged-out" style="display: none;">
-            <a href="#" class="orange-text modal-trigger" data-target="modal-login">Login</a>
+            <a href="#" class="red-text modal-trigger" data-target="modal-login">Login</a>
           </li>
           <li class="logged-out" style="display: none;">
-            <a href="#" class="grey-text modal-trigger" data-target="modal-signup"></a>
+            <a href="#" class="blue-text modal-trigger" data-target="modal-signup">Sign up</a>
           </li>
         </span>
       </ul>
@@ -42,13 +42,13 @@
       <form id="signup-form">
         <div class="input-field">
           <input type="email" id="signup-email" required />
-          <label for="signup-email">Email address</label>
+          <label for="signup-email">Email</label>
         </div>
         <div class="input-field">
           <input type="password" id="signup-password" required />
-          <label for="signup-password">Choose password</label>
+          <label for="signup-password">Password</label>
         </div>
-        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+        <button class="btn green darken-2 z-depth-0">Join</button>
       </form>
     </div>
   </div>
@@ -60,13 +60,13 @@
       <form id="login-form">
         <div class="input-field">
           <input type="email" id="login-email" autocomplete="off" required />
-          <label for="login-email">Email address</label>
+          <label for="login-email">Email </label>
         </div>
         <div class="input-field">
           <input type="password" id="login-password" required />
-          <label for="login-password">Your password</label>
+          <label for="login-password">Password</label>
         </div>
-        <button class="btn yellow darken-2 z-depth-0">Login</button>
+        <button class="btn green darken-2 z-depth-0">Login</button>
       </form>
     </div>
   </div>
@@ -87,13 +87,14 @@
         <div class="input-field">
           <input type="text" id="title" autocomplete="off" required>
            
-          <label for="title"> Headline</label>
+          <label for="title">Headline</label>
         </div>
         <div class="input-field">
           <textarea id="content" class="materialize-textarea" required></textarea>
-          <label for="content">Thoughts</label>
+          <label for="content">My thoughts</label>
         </div>
-        <button class="btn yellow darken-2 z-depth-0">Post</button>
+
+        <button class="btn blue darken-2 z-depth-0">Post</button>
       </form>
     </div>
   </div>

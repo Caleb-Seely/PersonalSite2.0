@@ -45,7 +45,7 @@ const setupGuides = (data) => {
       guideList.innerHTML = html
    }
    else{
-      guideList.innerHTML = '<h4 class="center-align">You should probably just turn around...</h4>'
+      guideList.innerHTML = '<h4 class="center-align">Login to learn more.</h4> '
    }
 };
  

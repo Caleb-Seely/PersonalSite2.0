@@ -39,15 +39,15 @@ signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
   
   // get user info
-  //const email = signupForm['signup-email'].value;      //Uncomment these two lines for public access
-  //const password = signupForm['signup-password'].value;
+  const email = signupForm['signup-email'].value;      //Uncomment these two lines for public access
+  const password = signupForm['signup-password'].value;
 
   // sign up the user
   auth.createUserWithEmailAndPassword(email, password).then(cred => {
     console.log(cred.user);
     // close the signup modal & reset form
     const modal = document.querySelector('#modal-signup');
-   //  M.Modal.getInstance(modal).close();
+    M.Modal.getInstance(modal).close();
     signupForm.reset();
   });
 });
@@ -72,8 +72,6 @@ loginForm.addEventListener('submit', (e) => {
       const email = loginForm['login-email'].value;
       const password = loginForm['login-password'].value;
 
-
-         console.log(email + password);
       // log the user in
       auth.signInWithEmailAndPassword(email, password).then((cred) => {
          console.log(cred.user);
