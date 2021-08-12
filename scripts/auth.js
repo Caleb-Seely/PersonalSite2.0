@@ -1,4 +1,5 @@
 // listen for auth status changes
+
 auth.onAuthStateChanged(user => {
    if (user) {
      console.log('user logged in: ', user);
@@ -8,17 +9,20 @@ auth.onAuthStateChanged(user => {
     });
    } else {
       setupUI();
-     setupGuides([]);
+      setupGuides([]);
    }
  })
 
 // create new guide
 const createForm = document.querySelector('#create-form');
+
 createForm.addEventListener('submit', (e) => {
+   
   e.preventDefault();
   db.collection('Notes').add({
     title: createForm.title.value,
-    content: createForm.content.value
+    content: createForm.content.value,
+    userID: auth.currentUser.uid
   }).then(() => {
     // close the create modal & reset form
     const modal = document.querySelector('#modal-create');

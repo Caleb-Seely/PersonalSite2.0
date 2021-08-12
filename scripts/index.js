@@ -29,14 +29,18 @@ const setupGuides = (data) => {
    if(data.length){
       let html = '';
       data.forEach(doc => {
-         const guide = doc.data();
-         const li = `
-            <li>
-            <div class="collapsible-header grey lighten-4"> ${guide.title} </div>
-            <div class="collapsible-body white"> ${guide.content} </div>
-            </li>
-         `;
-         html += li;
+         const posts = doc.data();
+         if(posts.userID == auth.currentUser.uid || posts.userID == 0){
+            
+            const li = `
+               <li>
+               <div class="collapsible-header grey lighten-4"> ${posts.title} </div>
+               <div class="collapsible-body white"> ${posts.content} </div>
+               </li>
+            `;
+            html += li;
+         }
+
       });
       guideList.innerHTML = html
    }
