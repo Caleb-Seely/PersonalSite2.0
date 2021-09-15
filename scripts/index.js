@@ -33,9 +33,12 @@ const setupGuides = (data) => {
          if(posts.userID == auth.currentUser.uid || posts.userID == 0){
             
             const li = `
-               <li>
-               <div class="collapsible-header grey lighten-4"> ${posts.title} </div>
-               <div class="collapsible-body white"> ${posts.content} </div>
+               <li >
+               <div class="collapsible-header "> <h4> ${posts.title} </h4> </div>
+               <div class="collapsible-body white" id = ""> 
+                  <p> ${posts.content} </p>
+               </div>
+               
                </li>
             `;
             html += li;

@@ -33,6 +33,13 @@ createForm.addEventListener('submit', (e) => {
   });
 });
 
+//Delete a guide
+const deleteForm = document.querySelector('#delete-form')
+deleteForm.addEventListener('submit', (e) => {
+   console.log("Delete");
+});
+
+
 // signup
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', (e) => {
@@ -57,6 +64,7 @@ const logout = document.querySelector('#logout');
 logout.addEventListener('click', (e) => {
   e.preventDefault();
   auth.signOut()
+  
 });
 
 
@@ -75,6 +83,7 @@ loginForm.addEventListener('submit', (e) => {
       // log the user in
       auth.signInWithEmailAndPassword(email, password).then((cred) => {
          console.log(cred.user);
+         console.log("logout")
          // close the signup modal & reset form
          const modal = document.querySelector('#modal-login');
          M.Modal.getInstance(modal).close();
