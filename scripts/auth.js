@@ -33,12 +33,6 @@ createForm.addEventListener('submit', (e) => {
   });
 });
 
-//Delete a guide
-const deleteForm = document.querySelector('#delete-form')
-deleteForm.addEventListener('submit', (e) => {
-   console.log("Delete");
-});
-
 
 // signup
 const signupForm = document.querySelector('#signup-form');
