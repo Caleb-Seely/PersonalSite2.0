@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: calebseely.com
+Token: 9139f8ed95fec2ad545f80cdaed6de4d40d1a04dd80b4162017418bbd32dde6a
