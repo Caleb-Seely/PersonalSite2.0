@@ -76,7 +76,11 @@ body::-webkit-scrollbar {
    width: auto;
    position: relative;
 }
+.icons a {
+   padding-right: .5%;
+   padding-left: .5%;
 
+}
 
 /*Image Bio */
 .img_bio {
