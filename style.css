@@ -108,6 +108,7 @@ body::-webkit-scrollbar {
 }
 .song-data {
    display: block;
+   width: 100%;
 }
 
 
