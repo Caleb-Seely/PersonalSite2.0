@@ -24,6 +24,10 @@
    background: none;
    color: white;
 }
+.btn-light{
+   background: none;
+   color: black;
+}
 .nav-link{
    color: white !important;
 }
@@ -87,6 +91,26 @@ body::-webkit-scrollbar {
    background-color: #111;
  }
  
+/* Spotify Content */
+.song-submission {
+   visibility:hidden;
+}
+.spotify_img {
+   width: 100%;
+}
+.spot-btn {
+   background-color: transparent;
+   border-style: hidden;
+   padding-left: 0%;
+}
+.spot-btn:hover {
+   color:green;
+}
+.song-data {
+   display: block;
+}
+
+
  /* Slider */
  .slick-slide {
      margin: 0px 20px;

@@ -8,6 +8,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <!--Slick-->
 <link rel="stylesheet" type="text/css" href="carousel.css" rel="stylesheet" type="text/css" >
 <script src="slick.js" type="text/javascript" charset="utf-8"></script>
@@ -31,7 +33,7 @@
 <script src="https://kit.fontawesome.com/76a9d7a075.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="javascript:getRandSong()">
    <div class="landing">
       <nav class="navbar navbar-expand-sm navbar-dark">
          <!-- Brand -->
@@ -87,13 +89,25 @@
             <P>Born and raised in Portland, Oregon, I continued my academic and athletic career at the University of Idaho. During my time there, I was a part of the cross country and track team while focusing on a computer science major and a minor in mathematics. Being part of a division one team has required me to evolve many skills at accelerated pace to maintain a successful career both on and off the track. This is reflected with my name on the Dean’s List and lifetime bests in both the 800m and 1500m to conclude my undergrad. Beyond education I love being active in the open air, sometimes it is a book in a warm patch of grass, other times it may be a ball and net with friends. When I can, I enjoy backpacking in the PNW and summiting its glorious mountains. </p>  
          </div>
          <div class="col-sm-4 card ">
-            <h2>Career Ambitions</h2>
-            <p> At University I found myself exposed to a wide variety of topics between technical courses and general studies. My favorite part about studying computer science is the versatility. I don’t need to commit to any one specific topic, shifting work as my interests evolve. Previously I had expressed interest in the ethics of technology and while it is still an passion of mine, I have found surprising pleasure in developing this website. Still, I am relatively new to the tech world and look forward to exploring a variety of topics through my career to find what I am most passionate about. Regardless of topic or tech, I look forward to making a positive impact on my community through my work.</p>
-                        <div class=""  id="greeting" >
-               <h3 class="text-center">Currently looking for work!</h3>
-               <h5><b>Major:</b> Computer Science.</h5>
-               <h5><b>Minor:</b> Mathematics.</h5>
+            <!-- <p> At University I found myself exposed to a wide variety of topics between technical courses and general studies. My favorite part about studying computer science is the versatility. I don’t need to commit to any one specific topic, shifting work as my interests evolve. Previously I had expressed interest in the ethics of technology and while it is still an passion of mine, I have found surprising pleasure in developing this website. Still, I am relatively new to the tech world and look forward to exploring a variety of topics through my career to find what I am most passionate about. Regardless of topic or tech, I look forward to making a positive impact on my community through my work.</p> -->
+            <div class=""  id="greeting" >
+               <h2 class="text-center">Open to new opportunities, lets chat!</h2>
+               <p>My background is in <b>Computer Science</b> and <b>Math</b> <br>
+               Send me your favorite logic puzzle! <a href="mailto:calebseely@gmail.com">  <b>calebseely@gmail.com</b></a></p>
                
+               <div class="spotify">
+                  <a href="https://open.spotify.com/playlist/2jlzrqaXQ9Y985JWRk1vlC?si=508f79d181c94bc8" target="_blank">
+                     <img class="spotify_img"  src="images/spotify2.png">
+                  </a>
+                  <h3>Add a song to my <a href="https://open.spotify.com/playlist/2jlzrqaXQ9Y985JWRk1vlC?si=508f79d181c94bc8" target="_blank">playlist</a>!</h3>
+                  <p>
+                     <input type="text" class="song-data" id="song-data-input" name="fname" size="50">
+                     <button class="song-data spot-btn btn" id="song-data-btn"  onclick="getSpotifyAPI()"> <h4>Add Song</h4></button>
+                     <div class="song-submission" id="song-submission">Much appreciated, I Look forward to listening to it!</div>
+                     <div id="song-info"></div>
+                  </p>
+
+               </div>               
             </div>
          </div>
       </div>
@@ -151,8 +165,19 @@
                   </div>
                </div>            
             
-      <!--Maze-->
+      <!--Spotify-->
             
+               <div class="card slide flex-fill " style="height:32rem;" >
+                  <div class="crop">
+                     <img class=" card-img-top  img-responsive " src="images/spotify.png" alt="Card image cap" style="object-fit: contain; overflow: hidden;">
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Spotify API</h5>
+                     <p class="card-text ">This personal project of mine was an opportunity to learn/play with Spotify's APIs and AWS </p>
+                     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Spotify">Learn more!</a>
+                  </div>
+               </div> 
+       <!--Maze  -->
                <div class="card slide flex-fill " style="height:32rem;" >
                   <div class="crop">
                      <img class=" card-img-top  img-responsive " src="images/Maze1.jpg" alt="Card image cap" style="object-fit: contain; overflow: hidden;">
@@ -262,6 +287,41 @@
    </div>
    <!--End Database Content-->
 
+   <!--Spotify Content-->
+   <div id="Spotify" class="modal fade" role="dialog">
+
+      <div class="modal-dialog modal-lg">
+   
+      <!-- Modal content-->
+         <div class="modal-content">
+
+               <div class="modal-header"> 
+                  <h4 class="modal-title">Spotify API + AWS</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+
+               <div class="modal-body text-left">
+                  <p>I started playing around with Spotify's APIs and quickly found myself eager to explore potential projects I could do with it</p>
+                  <p>One step at a time though, Rome wasn't built in a day and neither was this project.</p>
+                  <p>Originally I wanted to do data visualization as Spotify provides a plethora of data points on each song. Although the graphs often look interesting, I found them to be stale and repetative </p>
+                  
+                  <img class=" " src="images/scatter.jpg" alt="code" style="height: auto" ;>
+                  <p>Some of these graphs can be interesting , but its static and not for eveyone.</p>
+                  <p>It needs to be more interesting if I want to show it off.</p>
+                  <p>Everybody wants API and AWS experience. So I needed a project I found interesting, I think others would enjoy, and gave me experience with these tools.</p>
+
+
+               </div>
+
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+
+         </div>
+      </div>
+   </div>
+   <!--End Spotify Content-->
+
    <!--Maze Content-->
    <div id="Maze" class="modal fade" role="dialog">
 
@@ -296,7 +356,6 @@
       </div>
    </div>
    <!--End Maze Content-->
-
    <!--End Projects-->
 
 
@@ -354,6 +413,7 @@
       <a href="https://www.linkedin.com/in/caleb-seely" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="miscellaneous/Caleb_Seely_Resume.pdf" target="_blank"><i class="fas fa-file-alt" ></i></a>
       <a href="https://csdevstore.netlify.app/" target="_blank"><i class="fa fa-shopping-bag"></i></a>
+      <a href="https://open.spotify.com/playlist/2jlzrqaXQ9Y985JWRk1vlC?si=508f79d181c94bc8" target="_blank"><i class="fa fa-spotify"></i></a>
 
    </div>
    <div class="content-fluid text-center ">
@@ -419,6 +479,56 @@
 
 </script>
 
+<!-- Spotify API GET -->
+<script>
+   function getSpotifyAPI(){      
+      // Hide elements to prevent basic spamming
+      document.getElementById("song-data-input").style.display = "none"
+      document.getElementById("song-data-btn").style.display = "none"
+      document.getElementById("song-submission").style.visibility ="visible"
+      var songName = document.getElementById("song-data-input").value
+      console.log('Song Name: ' + songName)
+
+      const options = {
+            method: 'GET',
+            url: 'https://qa041i9qh3.execute-api.us-east-1.amazonaws.com/test/transactions',
+            params: {song: songName}
+         };
+
+         axios.request(options).then(function (response) {
+            console.log(response.data);
+            var song = response.data['song']
+            var artist = response.data['artist']
+            const songConfirmation = 
+            document.getElementById("song-info").innerHTML = "<b>" + song + "</b>" + " by " + "<b>" + artist + "</b>" + " has been added!"
+
+         }).catch(function (error) {
+            console.error(error);
+         });
+   }
+</script>
+
+<script>
+   // Allows the "enter" key to submit the song input 
+   var input = document.getElementById("song-data-input");
+   input.addEventListener("keyup", function(event) {
+     if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("song-data-btn").click();
+     }
+   });
+   </script>
+
+   <script>
+      
+      function getRandSong(){
+         const songs = ["Get Away Car Taylor Swift", "Santeria Sublime", "Pursuit of Happiness Cudi", "Girlfriend Avril Lavigne", "25 or 6 to 4 Chicago", "Working for the Weekend Loverboy", "Fortunate Son Creedence Clearwater Revival"];
+         const randSong = songs[Math.floor(Math.random() * songs.length)];
+         console.log("Rand song " + randSong)
+         document.getElementById("song-data-input").placeholder= randSong
+      }
+      
+   </script>
 
 <!--Slider Setup-->
 <script type="text/javascript">
@@ -453,11 +563,6 @@
       
    });
 </script>
-
-<!--Firebase-->
-
-
-<!--End Firebase-->
 
 </body>
 </html>
