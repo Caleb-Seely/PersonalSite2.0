@@ -309,7 +309,7 @@
                   <p>One step at a time though, Rome wasn't built in a day and neither was this project.</p>
                   <p>Originally I wanted to do data visualization as Spotify provides a plethora of data points on each song. Although the graphs often look interesting, I found them to be stale and repetative </p>
                   
-                  <img class=" " src="images/scatter.jpg" alt="code" style="height: auto" ;>
+                  <img class=" " src="images/scatter.jpg" alt="code" style="height: auto; width: 100%;" ;>
                   <p>Some of these graphs can be interesting , but its static and not for eveyone.</p>
                   <p>It needs to be more interesting if I want to show it off.</p>
                   <p>Everybody wants API and AWS experience. So I needed a project I found interesting, I think others would enjoy, and gave me experience with these tools.</p>
@@ -388,26 +388,33 @@
       <h1 class="display-4 text-primary"><b>Photos</b></h1>
       <div class="img_bio bg-secondary pb-3 pt-1 row" >
          
-         <div class="slide card"><img src="images/backpack.jpg"></div>
-         <div class="slide card"><img src="images/snow_run2.jpg" ></div>
-         <div class="slide card"><img src="images/smith.jpg" ></div>
-         <div class="slide card"><img src="images/dive.jpeg" ></div>
-         <div class="slide card"><img src="images/abi.jpg" ></div>
-         <div class="slide card"><img src="images/bella.jpg" ></div>
-         <div class="slide card"><img src="images/spirit.jpg" ></div>
-         <div class="slide card"><img src="images/science.jpg" ></div>  
-         <div class="slide card"><img src="images/cats.jpg" ></div>  
-         <div class="slide card"><img src="images/hood.jpg" ></div>
-         <div class="slide card"><img src="images/chip.jpg" ></div>
-         <div class="slide card"><img src="images/lake.jpg" ></div>
-         <div class="slide card"><img src="images/ellie.jpg" ></div>
-         <div class="slide card"><img src="images/saint.jpg"></div>
-         <div class="slide card"><img src="images/south2.jpg" ></div>
-         <div class="slide card"><img src="images/missy.jpg" ></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/backpack.jpg" title="Green Lakes"></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/snow_run2.jpg" title="Mt. Hood" ></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/smith.jpg" title="Smith Rock"></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/abi.jpg" title="The PNW"></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/dive.jpeg" title="Colchuck lake"></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/bella.jpg" title="Bella"></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/spirit.jpg" title="The PNW" ></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/science.jpg" title="Vo2 Max Test" ></div>  
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/cats.jpg" title="Missy and Ellie"></div>  
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/hood.jpg" title="Tamanawas Falls"></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/chip.jpg" title="MONK!" ></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/lake.jpg" title="The Enchantments" ></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/ellie.jpg" title="Ellie" ></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/saint.jpg" title="Mt. Saint Helens " ></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/missy.jpg" title="Missy" ></div>
+         <div class="slide card"><img class="pix3l" onclick="enlargeImg(this);" src="images/south2.jpg" title="South Sister" ></div>
 
        </div>
    </div>
    <!--End Img Bio-->
+
+   <div id="myModal" class="modal" onclick="closeImg()">
+      <span class="close">&times;</span>
+         <img class="modal-content" id="img01">
+         <div id="caption"></div>
+      
+    </div>
    
 
    <!--Footer-->
@@ -598,6 +605,27 @@
 
       
    });
+</script>
+
+<script>
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+
+function enlargeImg(img){
+   modal.style.display = "block";
+   modalImg.src = img.src;
+   captionText.innerHTML = img.title;
+   console.log(img.src)
+   console.log(img.title)
+}
+
+function closeImg(){
+   modal.style.display = "none";
+}
+
+// Get the <span> element that closes the modal
+
 </script>
 
 </body>
