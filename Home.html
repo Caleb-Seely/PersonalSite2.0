@@ -205,7 +205,7 @@
       <div class="modal-content">
          <div class="modal-header">
             
-            <h4 class="modal-title">C Compiler</h4>
+            <h4 class="modal-title">C Compiler | 2020</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
          </div>
          <div class="modal-body text-left">
@@ -266,7 +266,7 @@
       <!-- Modal content-->
       <div class="modal-content">
          <div class="modal-header"> 
-            <h4 class="modal-title">SQL Database (2020)</h4>
+            <h4 class="modal-title">SQL Database | 2020</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
          </div>
          <div class="modal-body text-left">
@@ -300,21 +300,22 @@
          <div class="modal-content">
 
                <div class="modal-header"> 
-                  <h4 class="modal-title">Spotify API + AWS</h4>
+                  <h4 class="modal-title">Spotify API + AWS | 2022</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                </div>
 
                <div class="modal-body text-left">
-                  <p>I started playing around with Spotify's APIs and quickly found myself eager to explore potential projects I could do with it</p>
-                  <p>One step at a time though, Rome wasn't built in a day and neither was this project.</p>
-                  <p>Originally I wanted to do data visualization as Spotify provides a plethora of data points on each song. Although the graphs often look interesting, I found them to be stale and repetative </p>
-                  
-                  <img class=" " src="images/scatter.jpg" alt="code" style="height: auto; width: 100%;" ;>
-                  <p>Some of these graphs can be interesting , but its static and not for eveyone.</p>
-                  <p>It needs to be more interesting if I want to show it off.</p>
-                  <p>Everybody wants API and AWS experience. So I needed a project I found interesting, I think others would enjoy, and gave me experience with these tools.</p>
-
-
+                  <p>I love to code. This project took a while to come up with. I had been wanting to play around with API’s for a while but couldn’t find a goal that interested me. Looking back, this project feels trivial but at the time, I had zero idea what I was doing. Some tutorials were helpful, others were trash, I pressed on anyways because I was passionate about it. </p>
+                  <p><b>Phase one</b>, learn Python. Not totally but it’s a newer language to me.</p>
+                  <p><b>Phase two</b>, get Spotify Developer up and running. As my projects become more complex, so does the setup. Permissions need to be set, roles assigned, and accounts connected. Having literally zero experience with this, it can be an overwhelming experience. Similarly with AWS, getting started in not a simple process. Eventually though, problems are worked through, and I can get back to coding.</p>
+                  <p><b>Phase three</b>, play around. At this point I still was unsure what direction I wanted to take the project. I experimented with data visualization and album art. I was getting familiar with how the APIs worked and the data each sent back. Wanting to add it to my website, nothing stuck with me like using user input to build a public playlist. Letting people interact with the playlist and seeing the result immediately sounded fun to me.</p>
+                  <p><b>Phase four</b>, AWS. Getting started with AWS feels like joining a new universe. High tech, efficient and well connected but you literally just got off your spaceship. Anyone else think AWS captchas are too challenging? I fail the captcha so often I’m starting to think I could be a robot. </p>
+                  <img class="img-responsive " src="images/awsCaptcha.jpg" alt="code" style="width: 75%;">
+                  <p>Like what in the world is going on here?</p>
+                  <p>After some more tutorials I got my first Lambda function up and running. It’s not my favorite editor so I wrote and tested as much as I could in VS before coping it over. It wasn’t all that easy though because OAuth didn’t want to play nice, eventually I figured out to copy the .cache file to solve my issues. Finally, a simple Lambda test could add songs to the playlist!</p>
+                  <p><b>Phase five</b>, API Gateway. To invoke the Lambda function I thought it would be best to send a GET request through API Gateway. A quick tutorial and some troubleshooting later, I was able to send variables (song names) from my website.</p>
+                  <p>I created a separate function and API for the “currently listening to” call at the top of the page. The second time around wasn’t pain free but certainly went a whole lot smoother. </p>
+                  <p>Lots of lessons learned and valuable experience gained. There will always be things I can change/add to but right now I am happy with how it turned out!  </p>
                </div>
 
                <div class="modal-footer">
@@ -335,7 +336,7 @@
          <div class="modal-content">
 
                <div class="modal-header"> 
-                  <h4 class="modal-title">C++ Maze</h4>
+                  <h4 class="modal-title">C++ Maze 2017</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                </div>
 
@@ -360,8 +361,8 @@
       </div>
    </div>
    <!--End Maze Content-->
-   <!--End Projects-->
 
+   <!--End Projects-->
 
    <!--Icon Section 2-->
    <div class="container-fluid pt-3 pb-3 text-center">
@@ -407,14 +408,16 @@
 
        </div>
    </div>
+
+   <!-- Modal used to enlarge images when they are clicked on -->
+   <div id="myModal" class="modal-img-bio" onclick="closeImg()">
+      <span class="close"></span>
+         <img class="modal-content-img-bio" id="img01">
+         <div id="caption"></div>  
+    </div>
    <!--End Img Bio-->
 
-   <div id="myModal" class="modal" onclick="closeImg()">
-      <span class="close">&times;</span>
-         <img class="modal-content" id="img01">
-         <div id="caption"></div>
-      
-    </div>
+
    
 
    <!--Footer-->
@@ -562,16 +565,16 @@
    });
    </script>
 
-   <script>
-      
-      function getRandSong(){
-         const songs = ["Get Away Car Taylor Swift", "Santeria Sublime", "Pursuit of Happiness Cudi", "Girlfriend Avril Lavigne", "25 or 6 to 4 Chicago", "Working for the Weekend Loverboy", "Fortunate Son Creedence Clearwater Revival"];
-         const randSong = songs[Math.floor(Math.random() * songs.length)];
-         // console.log("Rand song " + randSong)
-         document.getElementById("song-data-input").placeholder= randSong
-      }
-      
-   </script>
+<script>
+   
+   function getRandSong(){
+      const songs = ["Get Away Car Taylor Swift", "Santeria Sublime", "Pursuit of Happiness Cudi", "Girlfriend Avril Lavigne", "25 or 6 to 4 Chicago", "Working for the Weekend Loverboy", "Fortunate Son Creedence Clearwater Revival"];
+      const randSong = songs[Math.floor(Math.random() * songs.length)];
+      // console.log("Rand song " + randSong)
+      document.getElementById("song-data-input").placeholder= randSong
+   }
+   
+</script>
 
 <!--Slider Setup-->
 <script type="text/javascript">
@@ -607,24 +610,22 @@
    });
 </script>
 
+<!-- Enlarge img bio photos -->
 <script>
-var modal = document.getElementById("myModal");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
+   var modal = document.getElementById("myModal");
+   var modalImg = document.getElementById("img01");
+   var captionText = document.getElementById("caption");
 
-function enlargeImg(img){
-   modal.style.display = "block";
-   modalImg.src = img.src;
-   captionText.innerHTML = img.title;
-   console.log(img.src)
-   console.log(img.title)
+   function enlargeImg(img){
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      captionText.innerHTML = img.title;
 }
 
+// Close img bio photo
 function closeImg(){
    modal.style.display = "none";
 }
-
-// Get the <span> element that closes the modal
 
 </script>
 
