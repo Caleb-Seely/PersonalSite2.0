@@ -545,7 +545,7 @@
 
    function updateCurrentlyPlaying(){
       if (deviceStatus === 204) {
-      document.getElementById("sub-greeting").innerHTML = "I'm not currently listening to anything"
+      document.getElementById("sub-greeting").innerHTML = ""// "I'm not currently listening to anything"
       }
       else{
          document.getElementById("sub-greeting").innerHTML = "I'm currently listening to <b> " + song + "</b> by <b>" + artist + "</b> on my " + device +"!"
