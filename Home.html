@@ -532,11 +532,13 @@
    var artist = 'undefined'
    deviceStatus = 200
 
+//    Song and artist var names are dumb bc I think it looks cool
    axios.request(options).then(function (response){
-      song = response.data['song']
-      artist = response.data['artist']
+      so = response.data['song']
+      arti = response.data['artist']
       device = response.data['device']
-      uri = response.data['uri']
+      song_uri = response.data['song_uri']
+      artist_uri = response.data['artist_uri']
       deviceStatus =  response.status
       updateCurrentlyPlaying()
 
@@ -550,8 +552,8 @@
       }
       else{
         document.getElementById("sub-greeting").innerHTML = 
-    "I'm currently listening to <b><a href='" + uri + "' target='_blank'>" + song + 
-    "</a></b> by <b>" + artist + "</b> on my " + device + "!";
+    "I'm currently listening to <b><a href='" + song_uri + "' target='_blank'>" + so + 
+    "</a></b> by <b><a href='" + artist_uri + "' target='_blank'>" + arti + "</a></b> on my " + device + "!";
       }
    }
 </script>
@@ -570,7 +572,7 @@
 <script>
    
    function getRandSong(){
-      const songs = ["Get Away Car Taylor Swift", "Santeria Sublime", "Pursuit of Happiness Cudi", "Girlfriend Avril Lavigne", "25 or 6 to 4 Chicago", "Working for the Weekend Loverboy", "Fortunate Son Creedence Clearwater Revival"];
+      const songs = ["Get Away Car Taylor Swift", "Santeria Sublime", "Pursuit of Happiness Cudi", "25 or 6 to 4 Chicago", "Working for the Weekend Loverboy", "Fortunate Son Creedence Clearwater Revival"];
       const randSong = songs[Math.floor(Math.random() * songs.length)];
       // console.log("Rand song " + randSong)
       document.getElementById("song-data-input").placeholder= randSong

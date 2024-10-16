@@ -53,8 +53,14 @@
     color: black;    
  }
 
+ a:hover{
+    text-decoration: none;
+    color: inherit;
+ }
+
+
  .link{
-    text-decoration: underline;
+    text-decoration: none;
     color: blue;
  }
 
