@@ -527,12 +527,14 @@
       url: 'https://msx792wdyk.execute-api.us-east-1.amazonaws.com/production/songinformation'
    };
 
+   //    Song and artist var names are dumb bc I think it looks cool
+   var so = 'undefined'
+   var arti = 'undefined'
    var device = 'undefined'
-   var song = 'undefined'
-   var artist = 'undefined'
-   deviceStatus = 200
+   var song_uri = 'undefined'
+   var artist_uri = 'undefined'
+   var deviceStatus = 200
 
-//    Song and artist var names are dumb bc I think it looks cool
    axios.request(options).then(function (response){
       so = response.data['song']
       arti = response.data['artist']
