@@ -99,6 +99,7 @@
                 
                 <div class="spotify">
                     <h2>Checkout my latest project</h2>
+                    <h6 id="sub-greeting2"></h6>
                     <a href="https://open.spotify.com/playlist/2jlzrqaXQ9Y985JWRk1vlC?si=508f79d181c94bc8" target="_blank">
                         <img class="spotify_img"  src="images/spotify2.png">
                     </a>
@@ -124,11 +125,11 @@
       <h1>Personal Life</h1>
       <div class="img_bio row pt-3 bg-white">
          <div class="slide col-sm-4">
-            <i class="fas fa-hiking display-1"></i>
+            <i class="fas fa-hiking display-1" ></i>
             <h4 class="pt-3">Hike</h4>
          </div>
          <div class="slide col-sm-4">
-            <i class="fas fa-code display-1"></i>
+            <a href="https://messages-database-1.onrender.com"><i class="fas fa-code display-1"></i></a>
             <h4 class="pt-3">Code</h4>
          </div>
          <div class="slide col-sm-4">
@@ -554,8 +555,8 @@
       document.getElementById("sub-greeting").innerHTML = ""// "I'm not currently listening to anything"
       }
       else{
-        document.getElementById("sub-greeting").innerHTML = 
-    "I'm currently listening to <b><a href='" + song_uri + "' target='_blank'>" + so + 
+        document.getElementById("sub-greeting2").innerHTML = 
+    "I'm currently listening to <b ><a  href='" + song_uri + "' target='_blank'>" + so + 
     "</a></b> by <b><a href='" + artist_uri + "' target='_blank'>" + arti + "</a></b> on my " + device + "!";
       }
    }
